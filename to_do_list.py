@@ -35,7 +35,7 @@ todo_list = ToDoList()
 def run_program():
     run_program = '0'
     while run_program != '5':
-        run_program = input('Welcome to the Task Manager. What would you like to do?\n\t To add a task type 1\n\t To remove a task type 2\n\t To update a task status type 3\n\t To view all tasks type 4\n\t To exit type 5\n')
+        run_program = input('Welcome to the Task Manager. What would you like to do?\n\t To add a task type 1\n\t To remove a task type 2\n\t To update a task completion status type 3\n\t To view all tasks type 4\n\t To exit type 5\n')
         while not run_program.isdigit() or int(run_program) not in range(1, 6):
             run_program = input('Please enter a valid number between 1 and 5')
 
@@ -54,9 +54,18 @@ def run_program():
             todo_list.show_tasks()
 
         elif run_program == '3':
-            id = int(input('Enter the ID of the task to update: '))
+            id = int(input('Enter the ID of the task to update completion status: '))
             while id not in todo_list.tasks:
                 id = int(input('Please enter a valid task ID to update: '))
             todo_list.update_task(id)
             print('I\'ve updated your tasks: ')
             todo_list.show_tasks()
+
+        elif run_program == '4':
+            print('Here are all your tasks: ')
+            todo_list.show_tasks()
+
+    print('Thank you for using the Task Manager. Here are all your tasks: ')
+    todo_list.show_tasks()
+
+run_program()

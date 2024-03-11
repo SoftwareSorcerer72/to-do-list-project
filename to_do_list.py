@@ -11,3 +11,9 @@ class Task:
         status = "Completed" if self.completed else "Not Completed"
         print(f'Task ID: {self.id}, Description: {self.description}, Status: {status}')
 
+class ToDoList:
+    def __init__(self):
+        self.tasks = {}
+
+    def add_task(self, task):
+        self.tasks[task.id] = task
